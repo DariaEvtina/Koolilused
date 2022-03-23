@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Koolilused.Models.Opetaja>
+
+@{
+    ViewBag.Title = "Opetajad";
+}
+
+<h2>Õpetajad</h2>
+
+<p>
+    @Html.ActionLink("Loo uus", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OpetajaEesnimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpetajaPerenimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpetajaEesnimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpetajaPerenimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.ActionLink("Muuda", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Kustuta", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
